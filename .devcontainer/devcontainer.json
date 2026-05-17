@@ -1,0 +1,20 @@
+{
+  "name": "vivantis-parser",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/va-h/devcontainers-features/uv:1": {
+      "version": "latest"
+    }
+  },
+  "containerEnv": {
+    "UV_PYTHON": "3.14"
+  },
+  "postCreateCommand": "uv python install 3.14 && uv sync --all-groups",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": ".venv/bin/python"
+      }
+    }
+  }
+}
