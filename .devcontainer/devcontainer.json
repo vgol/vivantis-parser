@@ -1,15 +1,16 @@
 {
   "name": "vivantis-parser",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "image": "python:3.14-slim-bookworm",
   "features": {
     "ghcr.io/va-h/devcontainers-features/uv:1": {
       "version": "latest"
     }
   },
   "containerEnv": {
-    "UV_PYTHON": "3.14"
+    "UV_PYTHON": "3.14",
+    "UV_SYSTEM_CERTS": "1"
   },
-  "postCreateCommand": "uv python install 3.14 && uv sync --all-groups",
+  "postCreateCommand": "uv sync --all-groups --system-certs",
   "customizations": {
     "vscode": {
       "settings": {
