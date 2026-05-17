@@ -6,7 +6,7 @@
 
 ## Toolchain
 
-- **Package manager / runtime**: [uv](https://docs.astral.sh/uv/) — use `uv run`, `uv add`, `uv sync`, etc. Never use `pip` directly.
+- **Package manager / runtime**: [uv](https://docs.astral.sh/uv/) — use `uv run`, `uv add`, `uv remove`, `uv sync`, etc. Never use `pip` directly, and never use `uv pip` subcommands.
 - **Formatter & linter**: [ruff](https://docs.astral.sh/ruff/) — run `uv run ruff format .` to format and `uv run ruff check --fix .` to lint.
 - **Type checker**: [ty](https://github.com/astral-sh/ty) — run `uv run ty check` to type-check the project.
 - **Editor**: Visual Studio Code with the official [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) (Pylance / python-language-server).
@@ -15,7 +15,7 @@
 
 - Follow **PEP 8**; formatting is enforced by ruff.
 - Use **type annotations** on all function signatures and class attributes. Keep types precise so `ty` can verify them statically.
-- Prefer `from __future__ import annotations` at the top of every module to enable PEP 563 deferred evaluation.
+- Never use `from __future__ import annotations`; this project targets Python 3.14 and does not need it.
 - Use **f-strings** for string interpolation.
 - Keep functions small and focused; extract helpers when a function exceeds ~30 lines.
 - Avoid bare `except:`; always catch specific exception types.
